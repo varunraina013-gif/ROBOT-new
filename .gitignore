@@ -1,0 +1,14 @@
+.idea/
+*.log
+log.html
+output.xml
+report.html
+__pycache__/
+*.pyc
+.venv/
+*.pnglog.html
+output.xml
+report.html
+*.log
+*.png
+.idea/
