@@ -27,9 +27,16 @@ Verify the cart page
     shipping details and estimation,agree and check out
 
 go to check out and give the shipping details
-    Click on checkout page and fill the details
-#    Enter the information
-#    Click Continue
+    Click on checkout page and fill the shipping details
+
+go to payment method
+    Click on cash on delivery and confirm it
+
+confirm the order
+    check the products and address
+    click on continue
+
+
 #-------------------------------------------------------------------------------------------------
 *** Keywords ***
 click on login
@@ -75,9 +82,35 @@ shipping details and estimation,agree and check out
     Click Button    id=checkout
 
 
-Click on checkout page and fill the details
+Click on checkout page and fill the shipping details
     Wait Until Element Is Visible    xpath=//div[@class='page-title']//h1[text()='Checkout']
     Click Element    xpath=//div[@id='billing-buttons-container']
     Click Element    xpath=//input[@onclick="Billing.save()"]
     Wait Until Element Is Visible    xpath=//input[@id='PickUpInStore']    10s
     Click Element    xpath=//input[@id='PickUpInStore']
+    Execute Javascript    window.scrollBy(0,300)
+    Click Element    xpath=//input[@onclick="Shipping.save()"]
+    sleep    5s
+
+Click on cash on delivery and confirm it
+    Click Element    id=paymentmethod_0
+    Click Element    xpath=//input[@onclick="PaymentMethod.save()"]
+    Sleep    5s
+    Element Should Be Visible    xpath=//p[text()='You will pay by COD']
+    Click Element    xpath=//input[@onclick="PaymentInfo.save()"]
+
+
+check the products and address
+
+    Wait Until Element Is Enabled    xpath=//strong[text()='Billing Address']    10s
+    Wait Until Element Is Enabled    xpath=//strong[text()='Payment Method']    10s
+    Execute Javascript    window.scrollBy(0,500)
+    Wait Until Element Is Enabled    xpath=//span[@class="nobr"]
+
+click on continue
+
+    Click Element    xpath=//input[@onclick="ConfirmOrder.save()"]
+
+
+
+
