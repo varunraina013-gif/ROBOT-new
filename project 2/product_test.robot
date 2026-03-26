@@ -17,7 +17,7 @@ Login to the website
     Enter the credential
     Login to the account
 
-land on the official page and select a product
+Land on the official page and select a product
     Check we have landed on the page
     Select a product
     Add to cart
@@ -26,13 +26,13 @@ Verify the cart page
     Go to cart and verify that we have landed on the right page
     Shipping details and estimation,agree and check out
 
-go to check out and give the shipping details
+Go to check out and give the shipping details
     Click on checkout page and fill the shipping details
 
-go to payment method
+Go to payment method
     Click on cash on delivery and confirm it
 
-confirm the order
+Confirm the order
     Check the products and address
     Click on continue
 
@@ -71,7 +71,7 @@ Go to cart and verify that we have landed on the right page
     Click Element    xpath=//a[@href="/cart"]
     Wait Until Element Is Visible    xpath=//div[@class="page-title"]
 
-shipping details and estimation,agree and check out
+Shipping details and estimation,agree and check out
 
     Click Element    id=CountryId
     Select From List By Label    id=CountryId    India
