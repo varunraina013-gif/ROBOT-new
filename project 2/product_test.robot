@@ -76,16 +76,8 @@ shipping details and estimation,agree and check out
 
 
 Click on checkout page and fill the details
-    Element Should Be Visible    xpath=//div[@class="page-title"]
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
-    Click Element    id=BillingNewAddress_CountryId
-    Select From List By Label    xpath=//select[@data-val="true"]    India        #enter the option's text
-    Click Element    id=BillingNewAddress_StateProvinceId
-    Wait Until Element Is Visible    name=BillingNewAddress.StateProvinceId
-    Select From List By Label    name=BillingNewAddress.StateProvinceId    Other (Non US)
-
-
-
-    
-
-    
+    Wait Until Element Is Visible    xpath=//div[@class='page-title']//h1[text()='Checkout']
+    Click Element    xpath=//div[@id='billing-buttons-container']
+    Click Element    xpath=//input[@onclick="Billing.save()"]
+    Wait Until Element Is Visible    xpath=//input[@id='PickUpInStore']    10s
+    Click Element    xpath=//input[@id='PickUpInStore']
