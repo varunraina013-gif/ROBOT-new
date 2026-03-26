@@ -13,18 +13,18 @@ ${password}       123456
 
 *** Test Cases ***
 Login to the website
-    click on login
-    enter the credential
-    login to the account
+    Click on login
+    Enter the credential
+    Login to the account
 
 land on the official page and select a product
-    check we have landed on the page
-    select a product
-    add to cart
+    Check we have landed on the page
+    Select a product
+    Add to cart
 
 Verify the cart page
-    go to cart and verify that we have landed on the right page
-    shipping details and estimation,agree and check out
+    Go to cart and verify that we have landed on the right page
+    Shipping details and estimation,agree and check out
 
 go to check out and give the shipping details
     Click on checkout page and fill the shipping details
@@ -33,24 +33,24 @@ go to payment method
     Click on cash on delivery and confirm it
 
 confirm the order
-    check the products and address
-    click on continue
+    Check the products and address
+    Click on continue
 
 
 #-------------------------------------------------------------------------------------------------
 *** Keywords ***
-click on login
+Click on login
     Click Element    xpath=//a[@href="/login"]
     Element Should Be Visible    xpath=//h1[text()='Welcome, Please Sign In!']
-enter the credential
+Enter the credential
     Input Text    id=Email    ${username}
     Input Password   id=Password     ${password}
-login to the account
+Login to the account
     Click Element    xpath=//input[@value="Log in"]
-check we have landed on the page
+Check we have landed on the page
     Wait Until Element Is Visible         xpath=//h2[@class="topic-html-content-header"]
 
-select a product
+Select a product
     Double Click Element        xpath=//a[@href="/computers"]
     Click Element    xpath=//a[@title="Show products in category Desktops"]
     Click Element    xpath=//select[@id="products-orderby"]
@@ -63,11 +63,11 @@ select a product
     Click Element    id=product_attribute_75_6_32_99
     Click Element    id=product_attribute_75_8_35_108
 
-add to cart
+Add to cart
     Click Element    id=add-to-cart-button-75
     Wait Until Element Is Visible    id=bar-notification
 
-go to cart and verify that we have landed on the right page
+Go to cart and verify that we have landed on the right page
     Click Element    xpath=//a[@href="/cart"]
     Wait Until Element Is Visible    xpath=//div[@class="page-title"]
 
@@ -100,14 +100,14 @@ Click on cash on delivery and confirm it
     Click Element    xpath=//input[@onclick="PaymentInfo.save()"]
 
 
-check the products and address
+Check the products and address
 
     Wait Until Element Is Enabled    xpath=//strong[text()='Billing Address']    10s
     Wait Until Element Is Enabled    xpath=//strong[text()='Payment Method']    10s
     Execute Javascript    window.scrollBy(0,500)
     Wait Until Element Is Enabled    xpath=//span[@class="nobr"]
 
-click on continue
+Click on continue
 
     Click Element    xpath=//input[@onclick="ConfirmOrder.save()"]
 
